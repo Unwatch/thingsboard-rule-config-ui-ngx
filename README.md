@@ -12,6 +12,8 @@ Configuration UI for ThingsBoard Rule Nodes
     ```
     yarn run getthingsboard 
     ```
+    Please try to remove ui-ngx/target and ui-ngx/node_modules folders and try to build one more time.
+    ```
 3) Install dependencies
     ```
     yarn install 
