@@ -6,6 +6,8 @@ Configuration UI for ThingsBoard Rule Nodes
 
 1) Cleanup
     ```
+    yarn cache clean
+    ```
     yarn run cleanup 
     ```
 2) Get ThingsBoard UI dependency
@@ -13,6 +15,8 @@ Configuration UI for ThingsBoard Rule Nodes
     yarn run getthingsboard 
     ```
     Please try to remove ui-ngx/target and ui-ngx/node_modules folders and try to build one more time.
+    ```
+    Please try to yarn.lock file.
     ```
 3) Install dependencies
     ```

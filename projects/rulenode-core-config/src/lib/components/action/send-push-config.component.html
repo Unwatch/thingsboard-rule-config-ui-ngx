@@ -1,0 +1,24 @@
+<section [formGroup]="sendPushConfigForm" fxLayout="column">
+  <mat-form-field class="mat-block" style="padding-bottom: 24px;">
+    <mat-label translate>tb.rulenode.message-title-template</mat-label>
+    <input required matInput formControlName="messageTitleTemplate">
+    <mat-error *ngIf="sendPushConfigForm.get('messageTitleTemplate').hasError('required')">
+      {{ 'tb.rulenode.message-title-template-required' | translate }}
+    </mat-error>
+    <mat-hint [innerHTML]="'tb.rulenode.message-title-template-hint' | translate | safeHtml"></mat-hint>
+  </mat-form-field>
+  <mat-form-field class="mat-block" style="padding-bottom: 8px;">
+    <mat-label translate>tb.rulenode.push-message-template</mat-label>
+    <textarea required matInput formControlName="pushMessageTemplate" rows="6"></textarea>
+    <mat-error *ngIf="sendPushConfigForm.get('pushMessageTemplate').hasError('required')">
+      {{ 'tb.rulenode.push-message-template-required' | translate }}
+    </mat-error>
+    <mat-hint [innerHTML]="'tb.rulenode.general-pattern-hint' | translate | safeHtml"></mat-hint>
+  </mat-form-field>
+  <mat-checkbox formControlName="useSystemPushSettings" style="padding-bottom: 16px;">
+    {{ 'tb.rulenode.use-system-push-settings' | translate }}
+  </mat-checkbox>
+  <tb-push-provider-configuration *ngIf="sendPushConfigForm.get('useSystemPushSettings').value === false"
+    formControlName="pushProviderConfiguration" required>
+  </tb-push-provider-configuration>
+</section>

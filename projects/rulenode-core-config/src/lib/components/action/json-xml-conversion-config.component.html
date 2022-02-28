@@ -1,0 +1,10 @@
+<section [formGroup]="jsonXmlConversionConfigForm" fxLayout="column">
+  <mat-form-field class="mat-block">
+    <mat-label>转换方向</mat-label>
+    <mat-select formControlName="direction">
+      <mat-option *ngFor="let property of direction" [value]="property.value">
+        {{ property.key }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</section>
