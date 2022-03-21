@@ -33,6 +33,7 @@ import { DeviceProfileConfigComponent } from "./device-profile-config.component"
 import { SendSmsConfigComponent } from "./send-sms-config.component";
 import { SendPushConfigComponent } from "./send-push-config.component";
 import { JsonXmlConversionConfigComponent } from "./json-xml-conversion-config.component";
+import { ScheduledTaskConfigComponent } from "./scheduled-task-config.component";
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { JsonXmlConversionConfigComponent } from "./json-xml-conversion-config.c
     SendSmsConfigComponent,
     SendPushConfigComponent,
     JsonXmlConversionConfigComponent,
+    ScheduledTaskConfigComponent,
   ],
   imports: [
     CommonModule,
@@ -104,6 +106,7 @@ import { JsonXmlConversionConfigComponent } from "./json-xml-conversion-config.c
     SendSmsConfigComponent,
     SendPushConfigComponent,
     JsonXmlConversionConfigComponent,
+    ScheduledTaskConfigComponent,
   ],
 })
 export class RuleNodeCoreConfigActionModule {}

@@ -1,0 +1,45 @@
+<section [formGroup]="scheduledTaskConfigForm" fxLayout="column">
+  <mat-form-field class="mat-block">
+    <mat-label>消息发送次数，为0表示不受限制</mat-label>
+    <input required type="number" min="0" step="1" matInput formControlName="msgCount">
+    <mat-error *ngIf="scheduledTaskConfigForm.get('msgCount').hasError('required')">
+      {{ '消息发送次数不能为空'}}
+    </mat-error>
+    <mat-error *ngIf="scheduledTaskConfigForm.get('msgCount').hasError('min')">
+      {{ '最小值为0' }}
+    </mat-error>
+  </mat-form-field>
+  <!--  <mat-form-field class="mat-block">-->
+  <!--    <mat-label translate>tb.rulenode.period-seconds</mat-label>-->
+  <!--    <input required type="number" min="1" step="1" matInput formControlName="periodInSeconds">-->
+  <!--    <mat-error *ngIf="scheduleTaskConfigForm.get('periodInSeconds').hasError('required')">-->
+  <!--      {{ 'tb.rulenode.period-seconds-required' | translate }}-->
+  <!--    </mat-error>-->
+  <!--    <mat-error *ngIf="scheduleTaskConfigForm.get('periodInSeconds').hasError('min')">-->
+  <!--      {{ 'tb.rulenode.min-period-seconds-message' | translate }}-->
+  <!--    </mat-error>-->
+  <!--  </mat-form-field>-->
+  <mat-form-field>
+    <mat-label>Cron 表达式</mat-label>
+    <input required type="text" matInput formControlName="cron">
+    <mat-error *ngIf="scheduledTaskConfigForm.get('cron').hasError('required')">
+      {{ 'Cron 表达式不能为空' }}
+    </mat-error>
+  </mat-form-field>
+
+  <div fxLayout="column">
+    <label class="tb-small">{{ '消息发送者' }}</label>
+    <tb-entity-select required="false" formControlName="originator">
+    </tb-entity-select>
+  </div>
+  <label translate class="tb-title no-padding">tb.rulenode.generate</label>
+  <tb-js-func #jsFuncComponent formControlName="jsScript" functionName="Generate"
+    [functionArgs]="['prevMsg', 'prevMetadata', 'prevMsgType']" helpId="rulenode/generator_node_script_fn"
+    noValidate="true">
+  </tb-js-func>
+  <div fxLayout="row" style="padding-bottom: 16px;">
+    <button mat-button mat-raised-button color="primary" (click)="testScript()">
+      {{ '测试消息生成函数' }}
+    </button>
+  </div>
+</section>
